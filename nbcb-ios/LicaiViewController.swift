@@ -8,17 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LicaiViewController: UIViewController {
 
     @IBOutlet weak var shouyiTF: UITextField!
     @IBOutlet weak var dayTF: UITextField!
     @IBOutlet weak var moneyTF: UITextField!
     
+    @IBOutlet weak var getProfitButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        getProfitButton.layer.cornerRadius = getProfitButton.bounds.height / 4
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ShouyilvViewController.resignTF))
+        self.view.addGestureRecognizer(tapGesture)
     }
 
     override func didReceiveMemoryWarning() {

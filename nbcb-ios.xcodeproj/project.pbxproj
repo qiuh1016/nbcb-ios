@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		B9362B281F0C8FB4007A78D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B271F0C8FB4007A78D8 /* AppDelegate.swift */; };
-		B9362B2A1F0C8FB4007A78D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B291F0C8FB4007A78D8 /* ViewController.swift */; };
+		B9362B2A1F0C8FB4007A78D8 /* LicaiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B291F0C8FB4007A78D8 /* LicaiViewController.swift */; };
 		B9362B2D1F0C8FB4007A78D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9362B2B1F0C8FB4007A78D8 /* Main.storyboard */; };
 		B9362B301F0C8FB4007A78D8 /* nbcb_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9362B2E1F0C8FB4007A78D8 /* nbcb_ios.xcdatamodeld */; };
 		B9362B321F0C8FB4007A78D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9362B311F0C8FB4007A78D8 /* Assets.xcassets */; };
 		B9362B351F0C8FB4007A78D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9362B331F0C8FB4007A78D8 /* LaunchScreen.storyboard */; };
+		B9362B3D1F0CB5EC007A78D8 /* ShouyilvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B9362B241F0C8FB4007A78D8 /* nbcb-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nbcb-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9362B271F0C8FB4007A78D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B9362B291F0C8FB4007A78D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B9362B291F0C8FB4007A78D8 /* LicaiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicaiViewController.swift; sourceTree = "<group>"; };
 		B9362B2C1F0C8FB4007A78D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B9362B2F1F0C8FB4007A78D8 /* nbcb_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = nbcb_ios.xcdatamodel; sourceTree = "<group>"; };
 		B9362B311F0C8FB4007A78D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9362B341F0C8FB4007A78D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9362B361F0C8FB4007A78D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShouyilvViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				B9362B271F0C8FB4007A78D8 /* AppDelegate.swift */,
-				B9362B291F0C8FB4007A78D8 /* ViewController.swift */,
+				B9362B291F0C8FB4007A78D8 /* LicaiViewController.swift */,
+				B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */,
 				B9362B2B1F0C8FB4007A78D8 /* Main.storyboard */,
 				B9362B311F0C8FB4007A78D8 /* Assets.xcassets */,
 				B9362B331F0C8FB4007A78D8 /* LaunchScreen.storyboard */,
@@ -140,7 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9362B2A1F0C8FB4007A78D8 /* ViewController.swift in Sources */,
+				B9362B2A1F0C8FB4007A78D8 /* LicaiViewController.swift in Sources */,
+				B9362B3D1F0CB5EC007A78D8 /* ShouyilvViewController.swift in Sources */,
 				B9362B301F0C8FB4007A78D8 /* nbcb_ios.xcdatamodeld in Sources */,
 				B9362B281F0C8FB4007A78D8 /* AppDelegate.swift in Sources */,
 			);
@@ -264,7 +268,7 @@
 		B9362B3A1F0C8FB4007A78D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = 7529T252C9;
 				INFOPLIST_FILE = "nbcb-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -277,7 +281,7 @@
 		B9362B3B1F0C8FB4007A78D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = 7529T252C9;
 				INFOPLIST_FILE = "nbcb-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -306,6 +310,7 @@
 				B9362B3B1F0C8FB4007A78D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
