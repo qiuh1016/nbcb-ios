@@ -20,6 +20,18 @@ class ShouyilvViewController: UIViewController {
     
     @IBOutlet weak var shouyilvButton: UIButton!
     @IBOutlet weak var shouyiButton: UIButton!
+    
+    @IBOutlet weak var spaceConstraint_1: NSLayoutConstraint!
+    @IBOutlet weak var spaceConstraint_2: NSLayoutConstraint!
+    @IBOutlet weak var spaceConstraint_3: NSLayoutConstraint!
+    
+    @IBOutlet weak var toLeftConstraint_1: NSLayoutConstraint!
+    @IBOutlet weak var toLeftConstraint_2: NSLayoutConstraint!
+    
+    @IBOutlet weak var toRightConstraint_1: NSLayoutConstraint!
+    @IBOutlet weak var toRightConstraint_2: NSLayoutConstraint!
+    
+    @IBOutlet weak var toTopConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +41,25 @@ class ShouyilvViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ShouyilvViewController.resignTF))
         self.view.addGestureRecognizer(tapGesture)
+        
+        
+        if (iPhone5()) {
+            print(5)
+            spaceConstraint_1.constant = 29
+            spaceConstraint_2.constant = 29
+            spaceConstraint_3.constant = 29
+            
+            toLeftConstraint_1.constant = 20
+            toLeftConstraint_2.constant = 20
+            
+            toRightConstraint_1.constant = 62
+            toRightConstraint_2.constant = 62
+            
+            toTopConstraint.constant = 0;
+            
+            view.layer.layoutIfNeeded();
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,10 +83,12 @@ class ShouyilvViewController: UIViewController {
         profitPer += 1 / (zhitoubi! + 1) * cunkuanProfitPer!
         
         let message = String(format: "%.2f", profitPer) + "%"
-        let alertController = UIAlertController(title: "收益率", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "好的", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
+//        let alertController = UIAlertController(title: "收益率", message: message, preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "好的", style: .default, handler: nil)
+//        alertController.addAction(okAction)
+//        self.present(alertController, animated: true, completion: nil)
+        
+        alertView(title: "收益率", message: message, okActionTitle: "好的", okHandler: nil, viewController: self)
 
     }
 
@@ -79,10 +112,12 @@ class ShouyilvViewController: UIViewController {
         let profit = money! * 10000 * profitPer / 100 * day! / 365;
         
         let message = String(format: "%.2f", profit) + "元"
-        let alertController = UIAlertController(title: "收益", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "好的", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
+//        let alertController = UIAlertController(title: "收益", message: message, preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "好的", style: .default, handler: nil)
+//        alertController.addAction(okAction)
+//        self.present(alertController, animated: true, completion: nil)
+        
+        alertView(title: "收益", message: message, okActionTitle: "好的", okHandler: nil, viewController: self)
     }
     /*
     // MARK: - Navigation
@@ -95,10 +130,11 @@ class ShouyilvViewController: UIViewController {
     */
     
     func showErrAlert() {
-        let alertController = UIAlertController(title: "提示", message: "输入不全", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "好的", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
+//        let alertController = UIAlertController(title: "提示", message: "输入不全", preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "好的", style: .default, handler: nil)
+//        alertController.addAction(okAction)
+//        self.present(alertController, animated: true, completion: nil)
+        alertView(title: "提示", message: "输入不全", okActionTitle: "好的", okHandler: nil, viewController: self)
     }
     
     func resignTF() {

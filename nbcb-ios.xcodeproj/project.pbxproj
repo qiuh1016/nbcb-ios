@@ -14,6 +14,7 @@
 		B9362B321F0C8FB4007A78D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9362B311F0C8FB4007A78D8 /* Assets.xcassets */; };
 		B9362B351F0C8FB4007A78D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9362B331F0C8FB4007A78D8 /* LaunchScreen.storyboard */; };
 		B9362B3D1F0CB5EC007A78D8 /* ShouyilvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */; };
+		B9362B3F1F0E01AA007A78D8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B3E1F0E01AA007A78D8 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B9362B341F0C8FB4007A78D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9362B361F0C8FB4007A78D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShouyilvViewController.swift; sourceTree = "<group>"; };
+		B9362B3E1F0E01AA007A78D8 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				B9362B271F0C8FB4007A78D8 /* AppDelegate.swift */,
 				B9362B291F0C8FB4007A78D8 /* LicaiViewController.swift */,
 				B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */,
+				B9362B3E1F0E01AA007A78D8 /* Functions.swift */,
 				B9362B2B1F0C8FB4007A78D8 /* Main.storyboard */,
 				B9362B311F0C8FB4007A78D8 /* Assets.xcassets */,
 				B9362B331F0C8FB4007A78D8 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 				B9362B2A1F0C8FB4007A78D8 /* LicaiViewController.swift in Sources */,
 				B9362B3D1F0CB5EC007A78D8 /* ShouyilvViewController.swift in Sources */,
 				B9362B301F0C8FB4007A78D8 /* nbcb_ios.xcdatamodeld in Sources */,
+				B9362B3F1F0E01AA007A78D8 /* Functions.swift in Sources */,
 				B9362B281F0C8FB4007A78D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
