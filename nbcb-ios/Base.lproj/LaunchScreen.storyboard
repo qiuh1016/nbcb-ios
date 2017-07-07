@@ -23,33 +23,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小鸡仔专用APP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avj-c0-JmG">
-                                <rect key="frame" x="16" y="207" width="343" height="21"/>
+                                <rect key="frame" x="16" y="225" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.95686274510000002" green="0.47450980390000003" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收益计算" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qho-jM-PD2">
-                                <rect key="frame" x="16" y="154" width="343" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.95686274510000002" green="0.47450980390000003" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="16" y="154" width="343" height="54"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="45"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小龙人出品" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTl-4U-PWe">
-                                <rect key="frame" x="16" y="609" width="343" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.95686274510000002" green="0.47450980390000003" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017 Qiuhong, all right reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTl-4U-PWe">
+                                <rect key="frame" x="16" y="611" width="343" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小龙人出品" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiY-mp-EeZ">
+                                <rect key="frame" x="16" y="588" width="343" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.95686274510000002" green="0.47450980390000003" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="qho-jM-PD2" secondAttribute="trailing" id="0d2-O9-jj4"/>
                             <constraint firstAttribute="leadingMargin" secondItem="sTl-4U-PWe" secondAttribute="leading" id="2EQ-L3-zLt"/>
                             <constraint firstAttribute="leadingMargin" secondItem="qho-jM-PD2" secondAttribute="leading" id="4MV-U5-ChD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sTl-4U-PWe" secondAttribute="trailing" id="8eq-nY-3DO"/>
                             <constraint firstAttribute="leadingMargin" secondItem="avj-c0-JmG" secondAttribute="leading" id="CUd-bB-eiQ"/>
+                            <constraint firstItem="sTl-4U-PWe" firstAttribute="top" secondItem="aiY-mp-EeZ" secondAttribute="bottom" constant="5" id="Em9-c1-1ll"/>
                             <constraint firstAttribute="trailingMargin" secondItem="avj-c0-JmG" secondAttribute="trailing" id="IlO-Rk-BhR"/>
                             <constraint firstItem="qho-jM-PD2" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="134" id="bXl-hP-HqR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aiY-mp-EeZ" secondAttribute="trailing" id="hiC-h3-IkQ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="aiY-mp-EeZ" secondAttribute="leading" id="rT0-e1-1gf"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="sTl-4U-PWe" secondAttribute="bottom" constant="40" id="sWV-Jl-Zbo"/>
                             <constraint firstItem="avj-c0-JmG" firstAttribute="top" secondItem="qho-jM-PD2" secondAttribute="bottom" constant="17" id="tBz-yn-ElH"/>
                         </constraints>

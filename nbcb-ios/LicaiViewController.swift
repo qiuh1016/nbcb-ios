@@ -27,6 +27,11 @@ class LicaiViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //标题设置颜色与字体大小
+//        let dict:NSDictionary = [NSForegroundColorAttributeName: mainColor,NSFontAttributeName : UIFont.boldSystemFont(ofSize: 18)]
+//        self.navigationController?.navigationBar.titleTextAttributes = dict as? [String : AnyObject]
+        
         getProfitButton.layer.cornerRadius = getProfitButton.bounds.height / 4
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ShouyilvViewController.resignTF))

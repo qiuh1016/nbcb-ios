@@ -16,6 +16,8 @@
 		B9362B351F0C8FB4007A78D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9362B331F0C8FB4007A78D8 /* LaunchScreen.storyboard */; };
 		B9362B3D1F0CB5EC007A78D8 /* ShouyilvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */; };
 		B9362B3F1F0E01AA007A78D8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B3E1F0E01AA007A78D8 /* Functions.swift */; };
+		B96FE6361F0F2D0500EF625D /* MarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FE6351F0F2D0500EF625D /* MarkTableViewController.swift */; };
+		B96FE6381F0F378B00EF625D /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FE6371F0F378B00EF625D /* Values.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		B9362B361F0C8FB4007A78D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShouyilvViewController.swift; sourceTree = "<group>"; };
 		B9362B3E1F0E01AA007A78D8 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		B96FE6351F0F2D0500EF625D /* MarkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkTableViewController.swift; sourceTree = "<group>"; };
+		B96FE6371F0F378B00EF625D /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +70,10 @@
 				B9362B291F0C8FB4007A78D8 /* LicaiViewController.swift */,
 				B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */,
 				B9362B3E1F0E01AA007A78D8 /* Functions.swift */,
+				B96FE6371F0F378B00EF625D /* Values.swift */,
 				B9362B2B1F0C8FB4007A78D8 /* Main.storyboard */,
 				B923C11A1F0F239B004F585E /* IndexViewController.swift */,
+				B96FE6351F0F2D0500EF625D /* MarkTableViewController.swift */,
 				B9362B311F0C8FB4007A78D8 /* Assets.xcassets */,
 				B9362B331F0C8FB4007A78D8 /* LaunchScreen.storyboard */,
 				B9362B361F0C8FB4007A78D8 /* Info.plist */,
@@ -150,11 +156,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9362B2A1F0C8FB4007A78D8 /* LicaiViewController.swift in Sources */,
+				B96FE6361F0F2D0500EF625D /* MarkTableViewController.swift in Sources */,
 				B9362B3D1F0CB5EC007A78D8 /* ShouyilvViewController.swift in Sources */,
 				B9362B301F0C8FB4007A78D8 /* nbcb_ios.xcdatamodeld in Sources */,
 				B9362B3F1F0E01AA007A78D8 /* Functions.swift in Sources */,
 				B9362B281F0C8FB4007A78D8 /* AppDelegate.swift in Sources */,
 				B923C11B1F0F239B004F585E /* IndexViewController.swift in Sources */,
+				B96FE6381F0F378B00EF625D /* Values.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

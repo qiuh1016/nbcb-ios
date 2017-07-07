@@ -12,9 +12,6 @@ import UIKit
 import CoreLocation
 import AVFoundation
 
-//实际位置需加上dCoordinate
-let dCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D.init(latitude: -0.00193 , longitude: 0.00416)
-
 let PI = 3.14159265358979323846
 let EARTH_RADIUS = 6378.137
 
@@ -42,20 +39,6 @@ func alertView(title: String, message: String, okActionTitle: String, okHandler:
     let okAction = UIAlertAction(title: okActionTitle, style: UIAlertActionStyle.default, handler: okHandler)
     alert.addAction(okAction)
     viewController.present(alert, animated: true, completion: nil)
-}
-
-func realLocation(locations: [CLLocationCoordinate2D]) -> [CLLocationCoordinate2D]{
-    var realLocations = [CLLocationCoordinate2D]()
-    for location in locations{
-        let realLocation: CLLocationCoordinate2D = CLLocationCoordinate2D.init(latitude: location.latitude + dCoordinate.latitude, longitude: location.longitude + dCoordinate.longitude)
-        realLocations.append(realLocation)
-    }
-    return realLocations
-}
-
-func realLocation(location: CLLocationCoordinate2D) -> CLLocationCoordinate2D{
-    let realLocation: CLLocationCoordinate2D = CLLocationCoordinate2D.init(latitude: location.latitude + dCoordinate.latitude, longitude: location.longitude + dCoordinate.longitude)
-    return realLocation
 }
 
 func playSystemSound(){
