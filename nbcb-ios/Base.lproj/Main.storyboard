@@ -131,7 +131,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iao-Vj-8bO">
                                 <rect key="frame" x="36" y="324" width="303" height="40"/>
-                                <color key="backgroundColor" red="0.9552378654" green="0.4745567933" blue="0.25892510489999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.95686274509803915" green="0.47450980392156861" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="838-XT-pcD"/>
                                 </constraints>
@@ -175,10 +175,59 @@
             </objects>
             <point key="canvasLocation" x="2024.8" y="123.68815592203899"/>
         </scene>
+        <!--Index View Controller-->
+        <scene sceneID="c46-6K-sls">
+            <objects>
+                <viewController storyboardIdentifier="indexVC" id="BnR-ZM-DG1" customClass="IndexViewController" customModule="nbcb_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tGe-l8-vud"/>
+                        <viewControllerLayoutGuide type="bottom" id="S4c-G8-bzr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uR2-o3-iT2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小鸡仔专用APP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfT-PC-JPC">
+                                <rect key="frame" x="16" y="207" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.95686274510000002" green="0.47450980390000003" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收益计算" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cl-E7-zKs">
+                                <rect key="frame" x="16" y="154" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.95686274510000002" green="0.47450980390000003" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小龙人出品" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0A-A9-qIC">
+                                <rect key="frame" x="16" y="609" width="343" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.95686274510000002" green="0.47450980390000003" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="V0A-A9-qIC" secondAttribute="trailing" id="5ac-yf-fku"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GfT-PC-JPC" secondAttribute="trailing" id="5k3-KN-6XB"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="GfT-PC-JPC" secondAttribute="leading" id="9gu-uA-wAo"/>
+                            <constraint firstItem="S4c-G8-bzr" firstAttribute="top" secondItem="V0A-A9-qIC" secondAttribute="bottom" constant="40" id="E08-4b-Or9"/>
+                            <constraint firstItem="0cl-E7-zKs" firstAttribute="top" secondItem="tGe-l8-vud" secondAttribute="bottom" constant="134" id="F6F-bW-VBv"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="V0A-A9-qIC" secondAttribute="leading" id="JJe-IK-TMi"/>
+                            <constraint firstItem="GfT-PC-JPC" firstAttribute="top" secondItem="0cl-E7-zKs" secondAttribute="bottom" constant="17" id="OkR-n0-SNa"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0cl-E7-zKs" secondAttribute="leading" id="iaw-ah-znI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0cl-E7-zKs" secondAttribute="trailing" id="wmD-1M-fBq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I4V-0l-AFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-753" y="132"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="50N-aV-gMf">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="M8J-w3-IWA" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbarVC" automaticallyAdjustsScrollViewInsets="NO" id="M8J-w3-IWA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="wpG-uo-nmY">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

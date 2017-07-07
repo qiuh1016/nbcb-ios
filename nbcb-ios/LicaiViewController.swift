@@ -68,21 +68,12 @@ class LicaiViewController: UIViewController {
         let profit = money! * 10000 * profitPer! / 100 * day! / 365;
         
         let message = String(format: "%.2f", profit) + "元"
-//        let alertController = UIAlertController(title: "收益", message: message, preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "好的", style: .default, handler: nil)
-//        alertController.addAction(okAction)
-//        self.present(alertController, animated: true, completion: nil)
         
         alertView(title: "收益", message: message, okActionTitle: "好的", okHandler: nil, viewController: self)
         
     }
     
     func showErrAlert() {
-//        let alertController = UIAlertController(title: "提示", message: "输入不全", preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "好的", style: .default, handler: nil)
-//        alertController.addAction(okAction)
-//        self.present(alertController, animated: true, completion: nil)
-        
         alertView(title: "提示", message: "输入不全", okActionTitle: "好的", okHandler: nil, viewController: self)
     }
     
