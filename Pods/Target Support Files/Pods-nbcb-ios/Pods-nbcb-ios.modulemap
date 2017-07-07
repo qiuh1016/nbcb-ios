@@ -1,0 +1,6 @@
+framework module Pods_nbcb_ios {
+  umbrella header "Pods-nbcb-ios-umbrella.h"
+
+  export *
+  module * { export * }
+}

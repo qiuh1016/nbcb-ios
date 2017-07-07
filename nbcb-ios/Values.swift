@@ -11,3 +11,5 @@ import UIKit
 
 let mainColor = UIColor.colorFromRGB(rgbValue: 0xF47942, alpha: 1)
 let tabelViewCellTextColor = UIColor.colorFromRGB(rgbValue: 0xDA5241, alpha: 1)
+
+let url = "http://127.0.0.1:8084/myevent/"

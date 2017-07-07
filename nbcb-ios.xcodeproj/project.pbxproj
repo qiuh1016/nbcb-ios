@@ -16,11 +16,16 @@
 		B9362B351F0C8FB4007A78D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9362B331F0C8FB4007A78D8 /* LaunchScreen.storyboard */; };
 		B9362B3D1F0CB5EC007A78D8 /* ShouyilvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */; };
 		B9362B3F1F0E01AA007A78D8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B3E1F0E01AA007A78D8 /* Functions.swift */; };
+		B939FE331F0F58510040694E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B939FE321F0F58510040694E /* Podfile */; };
+		B939FE351F0F60530040694E /* Myevent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939FE341F0F60530040694E /* Myevent.swift */; };
 		B96FE6361F0F2D0500EF625D /* MarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FE6351F0F2D0500EF625D /* MarkTableViewController.swift */; };
 		B96FE6381F0F378B00EF625D /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FE6371F0F378B00EF625D /* Values.swift */; };
+		E26A28157466A66B49EF6FCA /* Pods_nbcb_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD7442AC771578C6F816BD4 /* Pods_nbcb_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A6CFDE956E21B4D306DFB40 /* Pods-nbcb-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nbcb-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nbcb-ios/Pods-nbcb-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		7DD7442AC771578C6F816BD4 /* Pods_nbcb_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nbcb_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B923C11A1F0F239B004F585E /* IndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		B9362B241F0C8FB4007A78D8 /* nbcb-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nbcb-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9362B271F0C8FB4007A78D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,8 +37,11 @@
 		B9362B361F0C8FB4007A78D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShouyilvViewController.swift; sourceTree = "<group>"; };
 		B9362B3E1F0E01AA007A78D8 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		B939FE321F0F58510040694E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
+		B939FE341F0F60530040694E /* Myevent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Myevent.swift; sourceTree = "<group>"; };
 		B96FE6351F0F2D0500EF625D /* MarkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkTableViewController.swift; sourceTree = "<group>"; };
 		B96FE6371F0F378B00EF625D /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
+		E415F3CB18CC2F53DE330861 /* Pods-nbcb-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nbcb-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-nbcb-ios/Pods-nbcb-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E26A28157466A66B49EF6FCA /* Pods_nbcb_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +61,8 @@
 			children = (
 				B9362B261F0C8FB4007A78D8 /* nbcb-ios */,
 				B9362B251F0C8FB4007A78D8 /* Products */,
+				CECC8F58ADDD9EB7AF767AFA /* Pods */,
+				DBD819122C5BDCE3D57019FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,10 +87,29 @@
 				B96FE6351F0F2D0500EF625D /* MarkTableViewController.swift */,
 				B9362B311F0C8FB4007A78D8 /* Assets.xcassets */,
 				B9362B331F0C8FB4007A78D8 /* LaunchScreen.storyboard */,
+				B939FE341F0F60530040694E /* Myevent.swift */,
 				B9362B361F0C8FB4007A78D8 /* Info.plist */,
+				B939FE321F0F58510040694E /* Podfile */,
 				B9362B2E1F0C8FB4007A78D8 /* nbcb_ios.xcdatamodeld */,
 			);
 			path = "nbcb-ios";
+			sourceTree = "<group>";
+		};
+		CECC8F58ADDD9EB7AF767AFA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A6CFDE956E21B4D306DFB40 /* Pods-nbcb-ios.debug.xcconfig */,
+				E415F3CB18CC2F53DE330861 /* Pods-nbcb-ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DBD819122C5BDCE3D57019FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DD7442AC771578C6F816BD4 /* Pods_nbcb_ios.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,9 +119,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9362B391F0C8FB4007A78D8 /* Build configuration list for PBXNativeTarget "nbcb-ios" */;
 			buildPhases = (
+				16872732FDF74CAE8A4160E8 /* [CP] Check Pods Manifest.lock */,
 				B9362B201F0C8FB4007A78D8 /* Sources */,
 				B9362B211F0C8FB4007A78D8 /* Frameworks */,
 				B9362B221F0C8FB4007A78D8 /* Resources */,
+				96C5D016F86184E7AE30F5DE /* [CP] Embed Pods Frameworks */,
+				AF4CBB5CA4ED804430AD39B4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,17 +177,67 @@
 			files = (
 				B9362B351F0C8FB4007A78D8 /* LaunchScreen.storyboard in Resources */,
 				B9362B321F0C8FB4007A78D8 /* Assets.xcassets in Resources */,
+				B939FE331F0F58510040694E /* Podfile in Resources */,
 				B9362B2D1F0C8FB4007A78D8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		16872732FDF74CAE8A4160E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		96C5D016F86184E7AE30F5DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nbcb-ios/Pods-nbcb-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF4CBB5CA4ED804430AD39B4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nbcb-ios/Pods-nbcb-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B9362B201F0C8FB4007A78D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B939FE351F0F60530040694E /* Myevent.swift in Sources */,
 				B9362B2A1F0C8FB4007A78D8 /* LicaiViewController.swift in Sources */,
 				B96FE6361F0F2D0500EF625D /* MarkTableViewController.swift in Sources */,
 				B9362B3D1F0CB5EC007A78D8 /* ShouyilvViewController.swift in Sources */,
@@ -283,6 +366,7 @@
 		};
 		B9362B3A1F0C8FB4007A78D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A6CFDE956E21B4D306DFB40 /* Pods-nbcb-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				DEVELOPMENT_TEAM = 7529T252C9;
@@ -297,6 +381,7 @@
 		};
 		B9362B3B1F0C8FB4007A78D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E415F3CB18CC2F53DE330861 /* Pods-nbcb-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				DEVELOPMENT_TEAM = 7529T252C9;

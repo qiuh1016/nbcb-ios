@@ -8,12 +8,18 @@
 
 import UIKit
 import CoreData
+import Alamofire
+import SwiftyJSON
+import Just
 
 class MarkTableViewController: UITableViewController {
     
-    var unDos = ["电销30个电话", "新客户理财", "存款300万"]
-    var dones = ["银监论文上交", "vlookup函数学习"]
+//    var unDos = ["电销30个电话", "新客户理财", "存款300万"]
+//    var dones = ["银监论文上交", "vlookup函数学习"]
 
+    var unDos = [Myevent]()
+    var dones = [Myevent]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +30,8 @@ class MarkTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor.colorFromRGB(rgbValue: 0xEFEFF4, alpha: 1)
+        
+        getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,12 +41,48 @@ class MarkTableViewController: UITableViewController {
     
     @IBAction func addEvent(_ sender: Any) {
         
-        let title = "133"
-        let finished = false
-        unDos.append(title)
-        let indexpath = IndexPath(row: unDos.count - 1, section: 0)
-        tableView.insertRows(at: [indexpath], with: .fade)
+        addMyevent(title: "已完成", finished: 1)
         
+    }
+    
+    func addMyevent(title: String, finished: Int) {
+        Alamofire.request(url + "add", parameters: ["title": title, "finished": finished]).responseJSON { response in
+            let json = JSON(data: response.data!)
+            if (json["success"].boolValue) {
+                let result = json["result"]
+                let myevent = Myevent(title: title, id: result["insertId"].intValue, finished: finished)
+                if (finished == 0) {
+                    self.unDos.append(myevent)
+                    let indexpath = IndexPath(row: self.unDos.count - 1, section: 0)
+                    self.tableView.insertRows(at: [indexpath], with: .fade)
+                } else {
+                    self.dones.insert(myevent, at: 0)
+                    let indexpath = IndexPath(row: 0, section: 1)
+                    self.tableView.insertRows(at: [indexpath], with: .fade)
+                }
+                
+            }
+        }
+    }
+    
+    func getData() {
+        
+        Alamofire.request(url + "get").responseJSON { response in
+
+            let json = JSON(data: response.data!)
+            if (json["success"].boolValue) {
+                let result = json["result"]
+                for i in 0 ..< result.count {
+                    let myevent = Myevent(title: result[i]["title"].stringValue, id: result[i]["id"].intValue, finished: result[i]["finished"].intValue)
+                    if myevent.finished == 0 {
+                        self.unDos.append(myevent)
+                    } else {
+                        self.dones.insert(myevent, at: 0)
+                    }
+                }
+            }
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
@@ -69,10 +113,10 @@ class MarkTableViewController: UITableViewController {
         
         switch indexPath.section {
         case 0:
-            cell.textLabel?.text = unDos[indexPath.row]
+            cell.textLabel?.text = unDos[indexPath.row].title
             cell.accessoryType = .none
         case 1:
-            cell.textLabel?.text = dones[indexPath.row]
+            cell.textLabel?.text = dones[indexPath.row].title
             cell.accessoryType = .checkmark
             cell.textLabel?.textColor = UIColor.gray
         default:
