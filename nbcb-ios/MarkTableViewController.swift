@@ -2,7 +2,7 @@
 //  MarkTableViewController.swift
 //  nbcb-ios
 //
-//  Created by qiuhong on 07/07/2017.
+//  Created by qiuhong on 09/07/2017.
 //  Copyright © 2017 qh. All rights reserved.
 //
 
@@ -14,18 +14,18 @@ import Just
 
 class MarkTableViewController: UITableViewController {
     
-//    var unDos = ["电销30个电话", "新客户理财", "存款300万"]
-//    var dones = ["银监论文上交", "vlookup函数学习"]
-
-    var unDos = [Myevent]()
-    var dones = [Myevent]()
+    //    var unDos = ["电销30个电话", "新客户理财", "存款300万"]
+    //    var dones = ["银监论文上交", "vlookup函数学习"]
+    
+    var unDos = [MyEvent]()
+    var dones = [MyEvent]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         tableView.tableFooterView = UIView()
@@ -33,65 +33,85 @@ class MarkTableViewController: UITableViewController {
         
         getData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func getContext () -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
     @IBAction func addEvent(_ sender: Any) {
         
-        addMyevent(title: "已完成", finished: 1)
+        let alertController = UIAlertController(title: "请输入待办事项", message: nil, preferredStyle: .alert)
+        alertController.addTextField {
+            (textField: UITextField!) -> Void in
+            
+        }
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "好的", style: .default, handler: {
+            action in
+            //也可以用下标的形式获取textField let login = alertController.textFields![0]
+            let eventTitle = alertController.textFields!.first!
+            if (eventTitle.text != "") {
+                self.addMyEvent(title: eventTitle.text!)
+            }
+        })
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
         
     }
     
-    func addMyevent(title: String, finished: Int) {
-        Alamofire.request(url + "add", parameters: ["title": title, "finished": finished]).responseJSON { response in
-            let json = JSON(data: response.data!)
-            if (json["success"].boolValue) {
-                let result = json["result"]
-                let myevent = Myevent(title: title, id: result["insertId"].intValue, finished: finished)
-                if (finished == 0) {
-                    self.unDos.append(myevent)
-                    let indexpath = IndexPath(row: self.unDos.count - 1, section: 0)
-                    self.tableView.insertRows(at: [indexpath], with: .fade)
-                } else {
-                    self.dones.insert(myevent, at: 0)
-                    let indexpath = IndexPath(row: 0, section: 1)
-                    self.tableView.insertRows(at: [indexpath], with: .fade)
-                }
-                
-            }
+    func addMyEvent(title: String) {
+        
+        let entity = NSEntityDescription.insertNewObject(forEntityName: "MyEvent", into: getContext()) as! MyEvent
+        entity.title = title
+        entity.finished = false
+        entity.addTimestamp = Int64(Date().timeIntervalSince1970 * 1000)
+        print(entity.addTimestamp)
+        unDos.append(entity)
+        let insertIndexPath = IndexPath(row: unDos.count - 1, section: 0)
+        tableView.insertRows(at: [insertIndexPath], with: .fade)
+        do {
+            try getContext().save()
+//            toast(title: "添加成功", vc: self)
+        } catch {
+            print("添加失败！！")
+            toast(title: "添加失败", vc: self)
+            unDos.remove(at: unDos.count - 1)
+            tableView.deleteRows(at: [insertIndexPath], with: .fade)
         }
     }
+    
     
     func getData() {
         
-        Alamofire.request(url + "get").responseJSON { response in
-
-            let json = JSON(data: response.data!)
-            if (json["success"].boolValue) {
-                let result = json["result"]
-                for i in 0 ..< result.count {
-                    let myevent = Myevent(title: result[i]["title"].stringValue, id: result[i]["id"].intValue, finished: result[i]["finished"].intValue)
-                    if myevent.finished == 0 {
-                        self.unDos.append(myevent)
-                    } else {
-                        self.dones.insert(myevent, at: 0)
-                    }
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MyEvent")
+        do {
+            let searchResults = try getContext().fetch(fetchRequest)
+            for e in (searchResults as! [MyEvent]){
+                if e.finished {
+                    dones.append(e)
+                } else {
+                    unDos.append(e)
                 }
             }
-            self.tableView.reloadData()
+        } catch  {
+            print(error)
         }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
@@ -103,10 +123,10 @@ class MarkTableViewController: UITableViewController {
         default:
             return 0
         }
-
+        
         
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -122,39 +142,73 @@ class MarkTableViewController: UITableViewController {
         default:
             break
         }
-
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        let eventToChange = indexPath.section == 0 ? unDos[indexPath.row] : dones[indexPath.row]
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+        let entity = NSEntityDescription.entity(forEntityName: "MyEvent", in: getContext())
+        fetchRequest.entity = entity
+        let predicate = NSPredicate.init(format: "addTimestamp = \(eventToChange.addTimestamp)", "")
+        fetchRequest.predicate = predicate
         
-        if (indexPath.section == 0) {
-            let event = unDos[indexPath.row]
-            unDos.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+        do{
+            let fetchedObjects = try getContext().fetch(fetchRequest) as! [MyEvent]
+            print(fetchedObjects.count)
             
-            dones.insert(event, at: 0)
-            let insetIndexParh = IndexPath(row: 0, section: 1)
-            tableView.insertRows(at: [insetIndexParh], with: .fade)
+            //遍历查询的结果
+            for info: MyEvent in fetchedObjects{
+                //修改对象
+                info.finished = indexPath.section == 0 ? true : false
+                //重新保存
+                try getContext().save()
+            }
             
-            let cell = tableView.cellForRow(at: insetIndexParh)!
-            cell.textLabel?.textColor = UIColor.gray
-        } else {
-            let event = dones[indexPath.row]
-            dones.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
-            unDos.append(event)
-            let insetIndexParh = IndexPath(row: unDos.count - 1, section: 0)
-            tableView.insertRows(at: [insetIndexParh], with: .fade)
-            
-            let cell = tableView.cellForRow(at: insetIndexParh)!
-            cell.textLabel?.textColor = tabelViewCellTextColor
+            //更新tableview
+            if (indexPath.section == 0) {
+                let event = unDos[indexPath.row]
+                event.finished = true
+                unDos.remove(at: indexPath.row)
+                
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+                dones.insert(event, at: 0)
+                let insetIndexParh = IndexPath(row: 0, section: 1)
+//                tableView.insertRows(at: [insetIndexParh], with: .fade)
+                
+                tableView.moveRow(at: indexPath, to: insetIndexParh)
+                
+                let cell = tableView.cellForRow(at: insetIndexParh)!
+                cell.textLabel?.textColor = UIColor.gray
+                cell.accessoryType = .checkmark
+            } else {
+                let event = dones[indexPath.row]
+                event.finished = false
+                dones.remove(at: indexPath.row)
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+                unDos.append(event)
+                let insetIndexParh = IndexPath(row: unDos.count - 1, section: 0)
+//                tableView.insertRows(at: [insetIndexParh], with: .fade)
+                
+                tableView.moveRow(at: indexPath, to: insetIndexParh)
+                let cell = tableView.cellForRow(at: insetIndexParh)!
+                cell.textLabel?.textColor = tabelViewCellTextColor
+                cell.accessoryType = .none
+            }
+        } catch {
+            let nserror = error as NSError
+            fatalError("查询错误： \(nserror), \(nserror.userInfo)")
         }
-    }
 
+        
+       
+    }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
@@ -166,53 +220,80 @@ class MarkTableViewController: UITableViewController {
         }
     }
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            if (indexPath.section == 0) {
-                unDos.remove(at: indexPath.row)
-            } else {
-                dones.remove(at: indexPath.row)
+            let eventToDelete = indexPath.section == 0 ? unDos[indexPath.row] : dones[indexPath.row]
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+            let entity = NSEntityDescription.entity(forEntityName: "MyEvent", in: getContext())
+            fetchRequest.entity = entity
+            let predicate = NSPredicate.init(format: "addTimestamp = \(eventToDelete.addTimestamp)", "")
+            fetchRequest.predicate = predicate
+            
+            do{
+                let fetchedObjects = try getContext().fetch(fetchRequest) as! [MyEvent]
+                print(fetchedObjects.count)
+                
+                //遍历查询的结果
+                for info: MyEvent in fetchedObjects{
+                    //删除对象
+                    getContext().delete(info)
+                    //重新保存
+                    try getContext().save()
+                }
+                
+                
+                //删除数据并更新tableview
+                if (indexPath.section == 0) {
+                    unDos.remove(at: indexPath.row)
+                } else {
+                    dones.remove(at: indexPath.row)
+                }
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            } catch {
+                let nserror = error as NSError
+                fatalError("查询错误： \(nserror), \(nserror.userInfo)")
             }
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
-
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }

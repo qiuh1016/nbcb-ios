@@ -12,6 +12,9 @@ import UIKit
 import CoreLocation
 import AVFoundation
 
+let application = UIApplication.shared
+let appDelegate = application.delegate as! AppDelegate
+
 let PI = 3.14159265358979323846
 let EARTH_RADIUS = 6378.137
 
@@ -39,6 +42,16 @@ func alertView(title: String, message: String, okActionTitle: String, okHandler:
     let okAction = UIAlertAction(title: okActionTitle, style: UIAlertActionStyle.default, handler: okHandler)
     alert.addAction(okAction)
     viewController.present(alert, animated: true, completion: nil)
+}
+
+func toast(title: String, vc: UIViewController) {
+    let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+    //显示提示框
+    vc.present(alertController, animated: true, completion: nil)
+    //1秒钟后自动消失
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        vc.presentedViewController?.dismiss(animated: false, completion: nil)
+    }
 }
 
 func playSystemSound(){

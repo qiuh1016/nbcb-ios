@@ -17,8 +17,8 @@
 		B9362B3D1F0CB5EC007A78D8 /* ShouyilvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */; };
 		B9362B3F1F0E01AA007A78D8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B3E1F0E01AA007A78D8 /* Functions.swift */; };
 		B939FE331F0F58510040694E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B939FE321F0F58510040694E /* Podfile */; };
-		B939FE351F0F60530040694E /* Myevent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939FE341F0F60530040694E /* Myevent.swift */; };
-		B96FE6361F0F2D0500EF625D /* MarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FE6351F0F2D0500EF625D /* MarkTableViewController.swift */; };
+		B95693DE1F122B0600C3E9CB /* MarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95693DD1F122B0600C3E9CB /* MarkTableViewController.swift */; };
+		B96FE6361F0F2D0500EF625D /* MarkTableViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FE6351F0F2D0500EF625D /* MarkTableViewController1.swift */; };
 		B96FE6381F0F378B00EF625D /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FE6371F0F378B00EF625D /* Values.swift */; };
 		E26A28157466A66B49EF6FCA /* Pods_nbcb_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD7442AC771578C6F816BD4 /* Pods_nbcb_ios.framework */; };
 /* End PBXBuildFile section */
@@ -38,8 +38,8 @@
 		B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShouyilvViewController.swift; sourceTree = "<group>"; };
 		B9362B3E1F0E01AA007A78D8 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		B939FE321F0F58510040694E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
-		B939FE341F0F60530040694E /* Myevent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Myevent.swift; sourceTree = "<group>"; };
-		B96FE6351F0F2D0500EF625D /* MarkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkTableViewController.swift; sourceTree = "<group>"; };
+		B95693DD1F122B0600C3E9CB /* MarkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkTableViewController.swift; sourceTree = "<group>"; };
+		B96FE6351F0F2D0500EF625D /* MarkTableViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkTableViewController1.swift; sourceTree = "<group>"; };
 		B96FE6371F0F378B00EF625D /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
 		E415F3CB18CC2F53DE330861 /* Pods-nbcb-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nbcb-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-nbcb-ios/Pods-nbcb-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,10 +84,10 @@
 				B96FE6371F0F378B00EF625D /* Values.swift */,
 				B9362B2B1F0C8FB4007A78D8 /* Main.storyboard */,
 				B923C11A1F0F239B004F585E /* IndexViewController.swift */,
-				B96FE6351F0F2D0500EF625D /* MarkTableViewController.swift */,
+				B96FE6351F0F2D0500EF625D /* MarkTableViewController1.swift */,
+				B95693DD1F122B0600C3E9CB /* MarkTableViewController.swift */,
 				B9362B311F0C8FB4007A78D8 /* Assets.xcassets */,
 				B9362B331F0C8FB4007A78D8 /* LaunchScreen.storyboard */,
-				B939FE341F0F60530040694E /* Myevent.swift */,
 				B9362B361F0C8FB4007A78D8 /* Info.plist */,
 				B939FE321F0F58510040694E /* Podfile */,
 				B9362B2E1F0C8FB4007A78D8 /* nbcb_ios.xcdatamodeld */,
@@ -237,14 +237,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B939FE351F0F60530040694E /* Myevent.swift in Sources */,
 				B9362B2A1F0C8FB4007A78D8 /* LicaiViewController.swift in Sources */,
-				B96FE6361F0F2D0500EF625D /* MarkTableViewController.swift in Sources */,
+				B96FE6361F0F2D0500EF625D /* MarkTableViewController1.swift in Sources */,
 				B9362B3D1F0CB5EC007A78D8 /* ShouyilvViewController.swift in Sources */,
 				B9362B301F0C8FB4007A78D8 /* nbcb_ios.xcdatamodeld in Sources */,
 				B9362B3F1F0E01AA007A78D8 /* Functions.swift in Sources */,
 				B9362B281F0C8FB4007A78D8 /* AppDelegate.swift in Sources */,
 				B923C11B1F0F239B004F585E /* IndexViewController.swift in Sources */,
+				B95693DE1F122B0600C3E9CB /* MarkTableViewController.swift in Sources */,
 				B96FE6381F0F378B00EF625D /* Values.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
