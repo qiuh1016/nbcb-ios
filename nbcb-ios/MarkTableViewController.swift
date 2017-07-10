@@ -162,6 +162,7 @@ class MarkTableViewController: UITableViewController {
         case 0:
             cell.textLabel?.text = unDos[indexPath.row].title
             cell.accessoryType = .none
+            cell.textLabel?.textColor = tableViewCellTextColor
         case 1:
             cell.textLabel?.text = dones[indexPath.row].title
             cell.accessoryType = .checkmark
@@ -216,7 +217,7 @@ class MarkTableViewController: UITableViewController {
                 let insetIndexParh = IndexPath(row: unDos.count - 1, section: 0)
                 tableView.moveRow(at: indexPath, to: insetIndexParh)
                 let cell = tableView.cellForRow(at: insetIndexParh)!
-                cell.textLabel?.textColor = tabelViewCellTextColor
+                cell.textLabel?.textColor = tableViewCellTextColor
                 cell.accessoryType = .none
             }
             
@@ -252,6 +253,7 @@ class MarkTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             let eventToDelete = indexPath.section == 0 ? unDos[indexPath.row] : dones[indexPath.row]
+            let title = eventToDelete.title
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
             let entity = NSEntityDescription.entity(forEntityName: "MyEvent", in: getContext())
             fetchRequest.entity = entity
@@ -260,7 +262,6 @@ class MarkTableViewController: UITableViewController {
             
             do{
                 let fetchedObjects = try getContext().fetch(fetchRequest) as! [MyEvent]
-                print(fetchedObjects.count)
                 
                 //遍历查询的结果
                 for info: MyEvent in fetchedObjects{
@@ -278,7 +279,7 @@ class MarkTableViewController: UITableViewController {
                     dones.remove(at: indexPath.row)
                 }
                 tableView.deleteRows(at: [indexPath], with: .fade)
-                uploadLog(type: 22, event: eventToDelete.title!)
+                uploadLog(type: 22, event: title!)
             } catch {
                 let nserror = error as NSError
                 fatalError("查询错误： \(nserror), \(nserror.userInfo)")

@@ -42,9 +42,9 @@ func uploadLog (type: Int, event: String) {
     }
     
     Alamofire.request(url + "addlog", parameters: ["type": type, "event": event, "user": username]).responseJSON { response in
-//        print(response.result)
-        let json = JSON(data: response.data!)
-        print(json)
+//        let json = JSON(data: response.data!)
+        print("\(type) : \(response.result)")
+        
     }
     
 }
