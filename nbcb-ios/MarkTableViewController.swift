@@ -28,6 +28,9 @@ class MarkTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        showUserAlert()
+        
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor.colorFromRGB(rgbValue: 0xEFEFF4, alpha: 1)
         
@@ -37,6 +40,29 @@ class MarkTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func showUserAlert() {
+        if UserDefault.object(forKey: "user") == nil {
+            let alertController = UIAlertController(title: "请输入您的昵称", message: nil, preferredStyle: .alert)
+            alertController.addTextField {
+                (textField: UITextField!) -> Void in
+                
+            }
+            let okAction = UIAlertAction(title: "好的", style: .default, handler: {
+                action in
+                //也可以用下标的形式获取textField let login = alertController.textFields![0]
+                let userTF = alertController.textFields!.first!
+                if (userTF.text != "") {
+                    UserDefault.set(userTF.text!, forKey: "user")
+                } else {
+                    self.showUserAlert()
+                }
+            })
+            alertController.addAction(okAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     func getContext () -> NSManagedObjectContext {
@@ -78,7 +104,7 @@ class MarkTableViewController: UITableViewController {
         tableView.insertRows(at: [insertIndexPath], with: .fade)
         do {
             try getContext().save()
-//            toast(title: "添加成功", vc: self)
+            uploadLog(type: 21, event: title)
         } catch {
             print("添加失败！！")
             toast(title: "添加失败", vc: self)
@@ -100,6 +126,7 @@ class MarkTableViewController: UITableViewController {
                     unDos.append(e)
                 }
             }
+            uploadLog(type: 23, event: "")
         } catch  {
             print(error)
         }
@@ -200,6 +227,8 @@ class MarkTableViewController: UITableViewController {
                 cell.textLabel?.textColor = tabelViewCellTextColor
                 cell.accessoryType = .none
             }
+            
+            uploadLog(type: 24, event: eventToChange.title!)
         } catch {
             let nserror = error as NSError
             fatalError("查询错误： \(nserror), \(nserror.userInfo)")
@@ -259,6 +288,7 @@ class MarkTableViewController: UITableViewController {
                     dones.remove(at: indexPath.row)
                 }
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                uploadLog(type: 22, event: eventToDelete.title!)
             } catch {
                 let nserror = error as NSError
                 fatalError("查询错误： \(nserror), \(nserror.userInfo)")
@@ -270,6 +300,7 @@ class MarkTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
+    
     
     
     /*
@@ -296,4 +327,5 @@ class MarkTableViewController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
 }

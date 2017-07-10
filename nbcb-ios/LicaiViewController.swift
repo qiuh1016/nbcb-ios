@@ -75,6 +75,7 @@ class LicaiViewController: UIViewController {
         let message = String(format: "%.2f", profit) + "元"
         
         alertView(title: "收益", message: message, okActionTitle: "好的", okHandler: nil, viewController: self)
+        uploadLog(type: 11, event: "")
         
     }
     

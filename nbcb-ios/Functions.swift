@@ -11,9 +11,43 @@ import Dispatch
 import UIKit
 import CoreLocation
 import AVFoundation
+import Alamofire
+import SwiftyJSON
 
-let application = UIApplication.shared
-let appDelegate = application.delegate as! AppDelegate
+//let application = UIApplication.shared
+//let appDelegate = application.delegate as! AppDelegate
+
+
+/*
+ * upload type
+ * 0: open app
+ * 1: activity app
+ * 2: terminal app
+ *
+ * 11: calculate licai
+ * 12: calculate shouyibi
+ * 13: calculate shouyi
+ *
+ * 21: add coredata
+ * 22: delete coredata
+ * 23: select coredata
+ * 24: update coredata
+ *
+ */
+func uploadLog (type: Int, event: String) {
+
+    var username = ""
+    if let user = UserDefault.object(forKey: "user") {
+        username = user as! String
+    }
+    
+    Alamofire.request(url + "addlog", parameters: ["type": type, "event": event, "user": username]).responseJSON { response in
+//        print(response.result)
+        let json = JSON(data: response.data!)
+        print(json)
+    }
+    
+}
 
 let PI = 3.14159265358979323846
 let EARTH_RADIUS = 6378.137

@@ -85,6 +85,7 @@ class ShouyilvViewController: UIViewController {
         let message = String(format: "%.2f", profitPer) + "%"
 
         alertView(title: "收益率", message: message, okActionTitle: "好的", okHandler: nil, viewController: self)
+        uploadLog(type: 12, event: "")
 
     }
 
@@ -110,6 +111,7 @@ class ShouyilvViewController: UIViewController {
         let message = String(format: "%.2f", profit) + "元"
         
         alertView(title: "收益", message: message, okActionTitle: "好的", okHandler: nil, viewController: self)
+        uploadLog(type: 13, event: "")
     }
     /*
     // MARK: - Navigation
