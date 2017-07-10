@@ -98,7 +98,7 @@ class MarkTableViewController: UITableViewController {
         entity.title = title
         entity.finished = false
         entity.addTimestamp = Int64(Date().timeIntervalSince1970 * 1000)
-        print(entity.addTimestamp)
+        
         unDos.append(entity)
         let insertIndexPath = IndexPath(row: unDos.count - 1, section: 0)
         tableView.insertRows(at: [insertIndexPath], with: .fade)
@@ -200,12 +200,8 @@ class MarkTableViewController: UITableViewController {
                 let event = unDos[indexPath.row]
                 event.finished = true
                 unDos.remove(at: indexPath.row)
-                
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-                
                 dones.insert(event, at: 0)
                 let insetIndexParh = IndexPath(row: 0, section: 1)
-//                tableView.insertRows(at: [insetIndexParh], with: .fade)
                 
                 tableView.moveRow(at: indexPath, to: insetIndexParh)
                 
@@ -216,12 +212,8 @@ class MarkTableViewController: UITableViewController {
                 let event = dones[indexPath.row]
                 event.finished = false
                 dones.remove(at: indexPath.row)
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-                
                 unDos.append(event)
                 let insetIndexParh = IndexPath(row: unDos.count - 1, section: 0)
-//                tableView.insertRows(at: [insetIndexParh], with: .fade)
-                
                 tableView.moveRow(at: indexPath, to: insetIndexParh)
                 let cell = tableView.cellForRow(at: insetIndexParh)!
                 cell.textLabel?.textColor = tabelViewCellTextColor
@@ -233,8 +225,6 @@ class MarkTableViewController: UITableViewController {
             let nserror = error as NSError
             fatalError("查询错误： \(nserror), \(nserror.userInfo)")
         }
-
-        
        
     }
     
