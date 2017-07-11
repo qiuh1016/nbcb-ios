@@ -560,19 +560,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="cell" textLabel="D0l-Oo-ihc" rowHeight="55" style="IBUITableViewCellStyleDefault" id="Jm7-kt-Zjd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="cell" textLabel="D0l-Oo-ihc" detailTextLabel="FiI-a7-1eI" rowHeight="55" style="IBUITableViewCellStyleSubtitle" id="Jm7-kt-Zjd">
                                 <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jm7-kt-Zjd" id="gus-Vk-oN2">
                                     <rect key="frame" x="0.0" y="0.0" width="336" height="54.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D0l-Oo-ihc">
-                                            <rect key="frame" x="15" y="0.0" width="321" height="54.5"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D0l-Oo-ihc">
+                                            <rect key="frame" x="15" y="11" width="35.5" height="21.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="0.92474812269210815" green="0.27034279704093933" blue="0.21385884284973145" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FiI-a7-1eI">
+                                            <rect key="frame" x="15" y="32.5" width="37.5" height="12"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -587,6 +594,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="记事" id="zyQ-ok-Qpt">
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="ZLL-on-XSj">
+                            <connections>
+                                <action selector="deleteAllDones:" destination="GBj-WY-lzT" id="xE6-VD-86b"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WO5-7x-0mz">
                             <connections>
                                 <action selector="addEvent:" destination="GBj-WY-lzT" id="jRg-fP-q66"/>

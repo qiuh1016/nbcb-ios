@@ -92,6 +92,52 @@ class MarkTableViewController: UITableViewController {
         
     }
     
+    @IBAction func deleteAllDones(_ sender: Any) {
+        let okHandler = {
+            (action:UIAlertAction!) -> Void in
+            print("deleteAllDones")
+            
+            
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+            let entity = NSEntityDescription.entity(forEntityName: "MyEvent", in: self.getContext())
+            fetchRequest.entity = entity
+            let predicate = NSPredicate.init(format: "finished = true")
+            fetchRequest.predicate = predicate
+            
+            do{
+                let fetchedObjects = try self.getContext().fetch(fetchRequest) as! [MyEvent]
+                print("fetch count: \(fetchedObjects.count)")
+                //遍历查询的结果
+                for info: MyEvent in fetchedObjects{
+                    //删除对象
+                    self.getContext().delete(info)
+                    //重新保存
+                    try self.getContext().save()
+                }
+                
+                
+                //删除数据并更新tableview
+                
+                var deleteIndexPaths = [IndexPath]()
+                for index in  0 ... self.dones.count - 1 {
+                    let deleteIndexPath = IndexPath(row: index, section: 1)
+                    deleteIndexPaths.append(deleteIndexPath)
+                }
+                self.dones.removeAll()
+                self.tableView.deleteRows(at: deleteIndexPaths, with: .fade)
+//                uploadLog(type: 22, event: title!)
+            } catch {
+                let nserror = error as NSError
+                fatalError("查询错误： \(nserror), \(nserror.userInfo)")
+            }
+
+        }
+        
+        alertView(title: "是否删除全部已完成事项", message: "", okActionTitle: "删除", cancleActionTitle: "取消", okHandler: okHandler, viewController: self)
+    }
+    
+    
     func addMyEvent(title: String) {
         
         let entity = NSEntityDescription.insertNewObject(forEntityName: "MyEvent", into: getContext()) as! MyEvent
@@ -161,10 +207,12 @@ class MarkTableViewController: UITableViewController {
         switch indexPath.section {
         case 0:
             cell.textLabel?.text = unDos[indexPath.row].title
+            cell.detailTextLabel?.text = timeStampToString(timeStamp: unDos[indexPath.row].addTimestamp)
             cell.accessoryType = .none
             cell.textLabel?.textColor = tableViewCellTextColor
         case 1:
             cell.textLabel?.text = dones[indexPath.row].title
+            cell.detailTextLabel?.text = timeStampToString(timeStamp: dones[indexPath.row].addTimestamp)
             cell.accessoryType = .checkmark
             cell.textLabel?.textColor = UIColor.gray
         default:

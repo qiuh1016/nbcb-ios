@@ -103,6 +103,18 @@ func showDate() -> String {
     return date
 }
 
+func timeStampToString(timeStamp:Int64) -> String {
+    
+    let timeSta: Double = Double(timeStamp / 1000)
+    let dfmatter = DateFormatter()
+    dfmatter.dateFormat="yyyy年MM月dd日 HH:mm"
+    
+    let date = Date(timeIntervalSince1970: timeSta)
+    
+//    print(dfmatter.string(from: date))
+    return dfmatter.string(from: date)
+}
+
 func isTelNumber(num: NSString) -> Bool {
     let mobile = "^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$"
     let CM = "^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d)\\d{7}$"
