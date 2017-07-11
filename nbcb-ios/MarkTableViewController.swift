@@ -93,6 +93,11 @@ class MarkTableViewController: UITableViewController {
     }
     
     @IBAction func deleteAllDones(_ sender: Any) {
+        
+        if (dones.count == 0) {
+            return
+        }
+        
         let okHandler = {
             (action:UIAlertAction!) -> Void in
             
