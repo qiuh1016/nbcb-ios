@@ -32,6 +32,7 @@ import SwiftyJSON
  * 22: delete coredata
  * 23: select coredata
  * 24: update coredata
+ * 25: deleteAll data
  *
  */
 func uploadLog (type: Int, event: String) {

@@ -95,9 +95,6 @@ class MarkTableViewController: UITableViewController {
     @IBAction func deleteAllDones(_ sender: Any) {
         let okHandler = {
             (action:UIAlertAction!) -> Void in
-            print("deleteAllDones")
-            
-            
             
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
             let entity = NSEntityDescription.entity(forEntityName: "MyEvent", in: self.getContext())
@@ -116,7 +113,6 @@ class MarkTableViewController: UITableViewController {
                     try self.getContext().save()
                 }
                 
-                
                 //删除数据并更新tableview
                 
                 var deleteIndexPaths = [IndexPath]()
@@ -126,7 +122,7 @@ class MarkTableViewController: UITableViewController {
                 }
                 self.dones.removeAll()
                 self.tableView.deleteRows(at: deleteIndexPaths, with: .fade)
-//                uploadLog(type: 22, event: title!)
+                uploadLog(type: 25, event: "")
             } catch {
                 let nserror = error as NSError
                 fatalError("查询错误： \(nserror), \(nserror.userInfo)")
