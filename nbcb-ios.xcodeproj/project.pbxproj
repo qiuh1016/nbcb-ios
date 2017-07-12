@@ -17,6 +17,7 @@
 		B9362B3D1F0CB5EC007A78D8 /* ShouyilvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */; };
 		B9362B3F1F0E01AA007A78D8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9362B3E1F0E01AA007A78D8 /* Functions.swift */; };
 		B939FE331F0F58510040694E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B939FE321F0F58510040694E /* Podfile */; };
+		B939FE371F1606920040694E /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939FE361F1606920040694E /* HistoryTableViewController.swift */; };
 		B95693DE1F122B0600C3E9CB /* MarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95693DD1F122B0600C3E9CB /* MarkTableViewController.swift */; };
 		B96FE6361F0F2D0500EF625D /* MarkTableViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FE6351F0F2D0500EF625D /* MarkTableViewController1.swift */; };
 		B96FE6381F0F378B00EF625D /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FE6371F0F378B00EF625D /* Values.swift */; };
@@ -38,6 +39,7 @@
 		B9362B3C1F0CB5EC007A78D8 /* ShouyilvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShouyilvViewController.swift; sourceTree = "<group>"; };
 		B9362B3E1F0E01AA007A78D8 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		B939FE321F0F58510040694E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
+		B939FE361F1606920040694E /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		B95693DD1F122B0600C3E9CB /* MarkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkTableViewController.swift; sourceTree = "<group>"; };
 		B96FE6351F0F2D0500EF625D /* MarkTableViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkTableViewController1.swift; sourceTree = "<group>"; };
 		B96FE6371F0F378B00EF625D /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				B923C11A1F0F239B004F585E /* IndexViewController.swift */,
 				B96FE6351F0F2D0500EF625D /* MarkTableViewController1.swift */,
 				B95693DD1F122B0600C3E9CB /* MarkTableViewController.swift */,
+				B939FE361F1606920040694E /* HistoryTableViewController.swift */,
 				B9362B311F0C8FB4007A78D8 /* Assets.xcassets */,
 				B9362B331F0C8FB4007A78D8 /* LaunchScreen.storyboard */,
 				B9362B361F0C8FB4007A78D8 /* Info.plist */,
@@ -241,6 +244,7 @@
 				B96FE6361F0F2D0500EF625D /* MarkTableViewController1.swift in Sources */,
 				B9362B3D1F0CB5EC007A78D8 /* ShouyilvViewController.swift in Sources */,
 				B9362B301F0C8FB4007A78D8 /* nbcb_ios.xcdatamodeld in Sources */,
+				B939FE371F1606920040694E /* HistoryTableViewController.swift in Sources */,
 				B9362B3F1F0E01AA007A78D8 /* Functions.swift in Sources */,
 				B9362B281F0C8FB4007A78D8 /* AppDelegate.swift in Sources */,
 				B923C11B1F0F239B004F585E /* IndexViewController.swift in Sources */,
@@ -369,12 +373,14 @@
 			baseConfigurationReference = 7A6CFDE956E21B4D306DFB40 /* Pods-nbcb-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7529T252C9;
 				INFOPLIST_FILE = "nbcb-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.qh.nbcb-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -384,12 +390,14 @@
 			baseConfigurationReference = E415F3CB18CC2F53DE330861 /* Pods-nbcb-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7529T252C9;
 				INFOPLIST_FILE = "nbcb-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.qh.nbcb-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

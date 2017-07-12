@@ -50,6 +50,35 @@ func uploadLog (type: Int, event: String) {
     
 }
 
+func switchType(type: Int) -> String {
+    switch type {
+    case 0:
+        return "打开app"
+    case 1:
+        return "激活app"
+    case 2:
+        return "结束app"
+    case 11:
+        return "理财计算"
+    case 12:
+        return "收益比计算"
+    case 13:
+        return "直投收益计算"
+    case 21:
+        return "增加事件"
+    case 22:
+        return "删除事件"
+    case 23:
+        return "显示事件"
+    case 24:
+        return "更新事件"
+    case 25:
+        return "删除已完成事件"
+    default:
+        return ""
+    }
+}
+
 let PI = 3.14159265358979323846
 let EARTH_RADIUS = 6378.137
 

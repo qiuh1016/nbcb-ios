@@ -14,9 +14,6 @@ import Just
 
 class MarkTableViewController: UITableViewController {
     
-    //    var unDos = ["电销30个电话", "新客户理财", "存款300万"]
-    //    var dones = ["银监论文上交", "vlookup函数学习"]
-    
     var unDos = [MyEvent]()
     var dones = [MyEvent]()
     
