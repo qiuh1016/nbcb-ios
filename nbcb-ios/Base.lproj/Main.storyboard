@@ -650,7 +650,13 @@
                             <outlet property="delegate" destination="hNJ-wP-23h" id="Jba-ts-IiA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="历史记录" id="Q7l-uB-x4Q"/>
+                    <navigationItem key="navigationItem" title="历史记录" id="Q7l-uB-x4Q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="zGR-aF-4ke">
+                            <connections>
+                                <action selector="refreshData:" destination="hNJ-wP-23h" id="5Qp-GA-ihD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWg-8y-KfT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

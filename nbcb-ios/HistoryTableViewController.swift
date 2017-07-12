@@ -44,9 +44,10 @@ class HistoryTableViewController: UITableViewController {
     }
 
     func getData() {
+        historys.removeAll()
         Alamofire.request(url + "getByName", parameters: ["user": "小鸡仔"]).responseJSON { response in
             let json = JSON(data: response.data!)
-            print(json)
+            print("get data ok")
             if (json["success"].boolValue) {
                 let result = json["result"]
                 for index in 0 ..< result.count {
@@ -58,6 +59,11 @@ class HistoryTableViewController: UITableViewController {
             }
         }
     }
+    
+    @IBAction func refreshData(_ sender: Any) {
+        getData()
+    }
+    
     
     // MARK: - Table view data source
 
