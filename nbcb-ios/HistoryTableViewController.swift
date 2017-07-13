@@ -26,6 +26,7 @@ class History {
 class HistoryTableViewController: UITableViewController {
     
     var historys = [History]()
+    var refreshData = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,12 +56,19 @@ class HistoryTableViewController: UITableViewController {
                     self.historys.append(h)
                 }
                 self.tableView.reloadData()
+                if self.refreshData {
+                    toast(title: "已更新", vc: self)
+                    self.refreshData = false
+                }
+                
                 
             }
         }
     }
     
+    
     @IBAction func refreshData(_ sender: Any) {
+        refreshData = true
         getData()
     }
     
